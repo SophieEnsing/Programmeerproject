@@ -14,7 +14,7 @@ De gebruikerdata wordt opgeslagen in Firebase. De gebruiker kan inloggen met een
 
 ## Utility Models
 ### Structs:
-Film Struct
+* Film Struct
 
 ### Functies
 * Login
