@@ -3,8 +3,20 @@
 ## UI Schetsen
 ![UI Schetsen](docs/UISketch.png)
 
-## Classes & functies
+## Utility Models
+### Structs:
+Film Struct
 
+### Functies
+* Login
+* Aanmaken van account
+* Voeg een vriend toe
+* Films ophalen via API
+* Haal gebruikerdata op (naam, watchlist, recommendations en diary)
+* Haal de vrienden van een gebruiker op uit Firebase
+* Voeg film toe aan watchlist
+* Film aanraden
+* Recommendations upvote/downvote geven
 
 ## API
 De films worden opgehaald via een API, namelijk de API van the Movie Database: 
