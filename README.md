@@ -18,4 +18,5 @@ De films worden opgehaald via een API, namelijk de API van the Movie Database: h
 ## Schets
 De belangrijkste schermen in de app zijn hieronder afgebeeld, namelijk een filmoverzicht, een filmpagina en de accountpagina. Vanaf de filmpagina is het mogelijk om een film aan te raden of toe te voegen aan de watchlist. Op de accountpagina zijn alle gegevens van de gebruiker te zien en in het filmoverzicht kunnen films gevonden worden. 
 
-![Wireframes](https://i.imgur.com/G0O8iSe.png)
+![Wireframes](docs/Sketch.png)
+
