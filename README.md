@@ -1,4 +1,4 @@
-# Programmeerproject - App
+# Programmeerproject - Proposal
 
 ## Probleem
 Er zijn diverse apps beschikbaar om een watchlist bij te houden voor films. Wat hier ontbreekt is de mogelijkheid tot interactie tussen gebruikers. In het dagelijks geven vrienden elkaar vaak aanbevelingen op het gebied van films, maar de keuze maken voor een film is toch vaak lastig. 
