@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 extension URL {
     func withQueries(_ queries: [String: String]) -> URL? {

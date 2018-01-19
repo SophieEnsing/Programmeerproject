@@ -30,10 +30,15 @@ extension UIImageView {
 }
 
 class MovieViewController: UIViewController, UICollectionViewDataSource {
-
+    @IBOutlet weak var collectionView: UICollectionView!
     var movieList = [Movie]()
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    let columnLayout = ColumnFlowLayout(
+        cellsPerRow: 3,
+        minimumInteritemSpacing: 0,
+        minimumLineSpacing: 10,
+        sectionInset: UIEdgeInsets(top: 10, left: 2, bottom: 10, right: 2)
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +48,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
                 self.updateUI(with: movieList)
             }
         }
+        collectionView?.collectionViewLayout = columnLayout
     }
     
     func updateUI(with movieList: [Movie]) {
@@ -69,13 +75,4 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
         cell.filmPoster.downloadedFrom(link: completeURL)
         return cell
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "MovieDetailSegue" {
-//            let movieItemDetailViewController = segue.destination as! MovieDetailViewController
-//            let index = tableView.indexPathForSelectedRow!.row
-//            movieItemDetailViewController.movieItem = movieItems[index]
-//        }
-//    }
-    
 }
