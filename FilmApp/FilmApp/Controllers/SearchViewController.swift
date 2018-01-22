@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDataSource {
+class SearchViewController: UIViewController, UICollectionViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var movieList = [Movie]()
+    var searchQueries = ["api_key":"15d0d9f81918875498b3c675e590ae34", "query":""]
     
     let columnLayout = ColumnFlowLayout(
         cellsPerRow: 3,
@@ -21,16 +22,22 @@ class SearchViewController: UIViewController, UICollectionViewDataSource {
         sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     )
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        let query = searchBar.text!
+        searchQueries = ["api_key": "15d0d9f81918875498b3c675e590ae34", "query": query]
         collectionView.dataSource = self
-        
-        MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/search/movie?")!, queries: ["api_key":"15d0d9f81918875498b3c675e590ae34", "query":"the avengers"]){ (movieList) in
+        MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/search/movie?")!, queries: searchQueries){ (movieList) in
             if let movieList = movieList {
                 self.updateUI(with: movieList)
             }
         }
         collectionView?.collectionViewLayout = columnLayout
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
     }
     
     func updateUI(with movieList: [Movie]) {
@@ -63,6 +70,17 @@ class SearchViewController: UIViewController, UICollectionViewDataSource {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MovieDetailsSegue" {
+            if let destination = segue.destination as? MovieDetailsViewController {
+                let cell = sender as! CollectionViewCell
+                let indexPath = collectionView.indexPath(for: cell)
+                let selectedCell = movieList[(indexPath?.row)!]
+                destination.movie = selectedCell
+            }
+        }
     }
 }
 

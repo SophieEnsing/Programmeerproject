@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32987CC5FFB0D17F5CF85DD2 /* Pods_FilmApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1CBB1839EE5AE2B5606A83 /* Pods_FilmApp.framework */; };
+		A911936720164095006CD2FD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A911936620164095006CD2FD /* AccountViewController.swift */; };
 		A91EDC4E2008CAA500E6D30B /* noe-display-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A91EDC4D2008CAA500E6D30B /* noe-display-bold.ttf */; };
 		A91EDC502008CBD700E6D30B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EDC4F2008CBD700E6D30B /* LoginViewController.swift */; };
 		A936129D2007906600F9E2DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936129C2007906600F9E2DE /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		21CA4DCFEA05D8F765276947 /* Pods-FilmApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilmApp/Pods-FilmApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A911936620164095006CD2FD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		A91EDC4D2008CAA500E6D30B /* noe-display-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "noe-display-bold.ttf"; path = "../../../noe-display-bold.ttf"; sourceTree = "<group>"; };
 		A91EDC4F2008CBD700E6D30B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A93612992007906600F9E2DE /* FilmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 			children = (
 				A940A7A8200CCA3C000EBEA7 /* MovieViewController.swift */,
 				A9691DB72016042700910CA5 /* SearchViewController.swift */,
+				A911936620164095006CD2FD /* AccountViewController.swift */,
 				A95A547220122937003B4D1E /* MovieDetailsViewController.swift */,
 			);
 			path = Controllers;
@@ -291,6 +294,7 @@
 				A9F9E44C2011F4450078B545 /* ColumnFlowLayout.swift in Sources */,
 				A936129D2007906600F9E2DE /* AppDelegate.swift in Sources */,
 				A940A7A0200CB984000EBEA7 /* LoadMovies.swift in Sources */,
+				A911936720164095006CD2FD /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,26 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController {
-//    var movie: Movie()
+    @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var moviePlot: UILabel!
+    
+    var movie: Movie!
+    let baseURL = "https://image.tmdb.org/t/p/w300"
+    var completeURL = "https://i.imgur.com/69nFCBj.jpg"
+    
+    func updateUI() {
+        movieTitle.text = movie.title
+        moviePlot.text = movie.overview
+        if movie.poster_path != nil {
+            completeURL = baseURL + String(describing: movie.poster_path!)
+        }
+        moviePoster.downloadedFrom(link: completeURL)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {

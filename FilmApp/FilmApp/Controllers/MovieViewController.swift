@@ -21,7 +21,7 @@ extension UIImageView {
             DispatchQueue.main.async() {
                 self.image = image
             }
-            }.resume()
+        }.resume()
     }
     func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
@@ -82,5 +82,16 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MovieDetailsSegue" {
+            if let destination = segue.destination as? MovieDetailsViewController {
+                let cell = sender as! CollectionViewCell
+                let indexPath = collectionView.indexPath(for: cell)
+                let selectedCell = movieList[(indexPath?.row)!]
+                destination.movie = selectedCell
+            }
+        }
     }
 }
