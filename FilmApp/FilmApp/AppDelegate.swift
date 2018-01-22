@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
             FirebaseApp.configure()
+            UINavigationBar.appearance().barStyle = .blackOpaque
             return true
     }
+
 }

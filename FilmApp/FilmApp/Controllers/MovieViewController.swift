@@ -35,9 +35,9 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
     
     let columnLayout = ColumnFlowLayout(
         cellsPerRow: 3,
-        minimumInteritemSpacing: 0,
+        minimumInteritemSpacing: 10,
         minimumLineSpacing: 10,
-        sectionInset: UIEdgeInsets(top: 10, left: 2, bottom: 10, right: 2)
+        sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     )
     
     override func viewDidLoad() {
@@ -65,14 +65,23 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
         
-        let thisMovie = movieList[indexPath.row]
-        cell.filmTitle.text = thisMovie.title
+        let thisMovie = movieList[indexPath.row]        
         cell.filmPoster.contentMode = .scaleAspectFill
         
         let baseURL = "https://image.tmdb.org/t/p/w300"
-        let completeURL = baseURL + String(describing: thisMovie.poster_path)
+        
+        var completeURL = "https://i.imgur.com/69nFCBj.jpg"
+        
+        if thisMovie.poster_path != nil {
+            completeURL = baseURL + String(describing: thisMovie.poster_path!)
+        }
         
         cell.filmPoster.downloadedFrom(link: completeURL)
+        
         return cell
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

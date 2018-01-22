@@ -16,11 +16,11 @@ struct Movie: Codable {
     var vote_average: Double
     var vote_count: Int
     var popularity: Double
-    var poster_path: URL
+    var poster_path: URL? = nil
     var original_language: String
     var original_title: String
     var genre_ids: [Int]
-    var backdrop_path: String
+    var backdrop_path: String? = nil
     var adult: Bool
     var release_date: String
 }

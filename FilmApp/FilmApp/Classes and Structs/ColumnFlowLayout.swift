@@ -16,7 +16,7 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
             guard let collectionView = collectionView else { return super.itemSize }
             let marginsAndInsets = sectionInset.left + sectionInset.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
             let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-            return CGSize(width: itemWidth, height: itemWidth)
+            return CGSize(width: itemWidth, height: itemWidth * 1.5)
         }
         set {
             super.itemSize = newValue
