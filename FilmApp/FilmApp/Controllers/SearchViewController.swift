@@ -1,36 +1,17 @@
 //
-//  MovieCollectionViewController.swift
+//  SearchViewController.swift
 //  FilmApp
 //
-//  Created by Sophie Ensing on 15-01-18.
+//  Created by Sophie Ensing on 22-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //
 
 import UIKit
 
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-            }.resume()
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}
-
-class MovieViewController: UIViewController, UICollectionViewDataSource {
+class SearchViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var movieList = [Movie]()
     
     let columnLayout = ColumnFlowLayout(
@@ -44,7 +25,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         collectionView.dataSource = self
         
-        MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/movie/popular?")!, queries: ["api_key":"15d0d9f81918875498b3c675e590ae34"]){ (movieList) in
+        MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/search/movie?")!, queries: ["api_key":"15d0d9f81918875498b3c675e590ae34", "query":"the avengers"]){ (movieList) in
             if let movieList = movieList {
                 self.updateUI(with: movieList)
             }
@@ -66,7 +47,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
         
-        let thisMovie = movieList[indexPath.row]        
+        let thisMovie = movieList[indexPath.row]
         cell.filmPoster.contentMode = .scaleAspectFill
         
         let baseURL = "https://image.tmdb.org/t/p/w300"
@@ -84,3 +65,4 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
         return .lightContent
     }
 }
+
