@@ -7,12 +7,27 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var moviePlot: UILabel!
+    @IBOutlet weak var watchlistButton: UIButton!
     
+    @IBAction func watchlistAction(_ sender: Any) {
+        addMovie()
+    }
+    
+    func addMovie() {
+        let userID = Auth.auth().currentUser!.uid
+        let ref: DatabaseReference! = Database.database().reference().child("watchList").child(userID)
+        let userData: [String: Any] = ["poster": String(describing: movie.poster_path),
+                                       "overview": movie.overview,
+                                       "title": movie.title]
+        ref.child(String(movie.id)).setValue(userData)
+    }
+
     var movie: Movie!
     let baseURL = "https://image.tmdb.org/t/p/w300"
     var completeURL = "https://i.imgur.com/69nFCBj.jpg"
