@@ -12,7 +12,7 @@ struct Movie: Codable {
     var id: Int
     var title: String
     var overview: String
-    var poster_path: URL? = nil
+    var poster_path: String? = nil
 }
 
 struct Movies: Codable {

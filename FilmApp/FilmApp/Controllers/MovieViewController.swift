@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 extension UIImageView {
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {

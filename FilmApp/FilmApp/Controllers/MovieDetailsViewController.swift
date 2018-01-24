@@ -21,13 +21,14 @@ class MovieDetailsViewController: UIViewController {
     
     func addMovie() {
         let userID = Auth.auth().currentUser!.uid
-        let ref: DatabaseReference! = Database.database().reference().child("watchList").child(userID)
-        let userData: [String: Any] = ["poster": String(describing: movie.poster_path),
-                                       "overview": movie.overview,
-                                       "title": movie.title]
-        ref.child(String(movie.id)).setValue(userData)
+        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
+        let userData: [String: Any] = ["id": self.movie.id,
+                                        "poster": self.movie.poster_path!,
+                                        "overview": self.movie.overview,
+                                        "title": self.movie.title]
+        ref.child(String(self.movie.id)).setValue(userData)
     }
-
+    
     var movie: Movie!
     let baseURL = "https://image.tmdb.org/t/p/w300"
     var completeURL = "https://i.imgur.com/69nFCBj.jpg"
@@ -52,5 +53,14 @@ class MovieDetailsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RecommendSegue" {
+            if let destination = segue.destination as? RecommendViewController {
+                destination.movieTitle.text = movie.title
+                destination.moviePoster.downloadedFrom(link: completeURL)
+            }
+        }
     }
 }

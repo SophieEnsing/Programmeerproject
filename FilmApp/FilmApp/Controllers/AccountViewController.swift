@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 
 class AccountViewController: UIViewController, UICollectionViewDataSource {
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var movieList = [Movie]()
-    
+    var userID = Auth.auth().currentUser!.uid
+
     let columnLayout = ColumnFlowLayout(
-        cellsPerRow: 4,
+        cellsPerRow: 3,
         minimumInteritemSpacing: 10,
         minimumLineSpacing: 10,
         sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -24,11 +26,29 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         collectionView.dataSource = self
         
-        MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/movie/popular?")!, queries: ["api_key":"15d0d9f81918875498b3c675e590ae34"]){ (movieList) in
-            if let movieList = movieList {
-                self.updateUI(with: movieList)
+        let ref = Database.database().reference().child("users").child(userID)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            self.usernameLabel.text = username
+        })
+        
+        ref.child("watchlist").observe(.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.movieList = []
+                for movies in snapshot.children.allObjects as! [DataSnapshot] {
+                    let movieObject = movies.value as? [String: AnyObject]
+                    let id = movieObject!["id"]
+                    let title = movieObject!["title"]
+                    let overview = movieObject!["overview"]
+                    let poster = movieObject!["poster"]
+                    let movieToBeAdded = Movie(id: id! as! Int, title: title! as! String,
+                                overview: overview! as! String, poster_path: poster as? String)
+                    self.movieList.append(movieToBeAdded)
+                }
+                self.updateUI(with: self.movieList)
             }
-        }
+        })
         collectionView?.collectionViewLayout = columnLayout
     }
     
