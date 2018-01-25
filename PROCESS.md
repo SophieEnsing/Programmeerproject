@@ -19,3 +19,14 @@ Op vrijdag heb ik gewerkt aan het weergeven van film details. Als er op een film
 film. Daarnaast was het de bedoeling om te werken aan de zoekfunctie en deze helemaal af te maken, maar dat is nog niet helemaal gelukt.
 
 ## Week 3
+### 22/01
+De zoekfunctie is afgemaakt en werkt helemaal goed. Als er geen poster is dan wordt er een default afbeelding ingeladen.
+
+### 23/01
+Gebruikers komen met username in de database en de data van gebruiker wordt ingeladen in een collection view. 
+
+### 24/01
+Films toevoegen aan watchlist werkt nu helemaal goed. Was de bedoeling om aangeraden films en watchlist films via segmented control weer te geven maar dit is nog niet gelukt.
+
+### 25/01
+Afmaken van MVP. Vrienden toevoegen en films aanraden aan vrienden. Segmented control is gelukt en wordt ook gebruikt voor het weergeven van vrienden/alle gebruikers.
