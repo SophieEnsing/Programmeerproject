@@ -58,8 +58,7 @@ class MovieDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RecommendSegue" {
             if let destination = segue.destination as? RecommendViewController {
-                destination.movieTitle.text = movie.title
-                destination.moviePoster.downloadedFrom(link: completeURL)
+                destination.movie = movie
             }
         }
     }

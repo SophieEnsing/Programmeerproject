@@ -51,6 +51,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
             }
         }
         collectionView?.collectionViewLayout = columnLayout
+        self.navigationItem.setHidesBackButton(true, animated:true);
     }
     
     func updateUI(with movieList: [Movie]) {
