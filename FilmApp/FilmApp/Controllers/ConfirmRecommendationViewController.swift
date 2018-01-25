@@ -25,12 +25,14 @@ class ConfirmRecommendationViewController: UIViewController {
     }
     
     func addMovie() {
+        let thisUser = Auth.auth().currentUser!.uid
         let userID = user.id
         let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("recs")
         let userData: [String: Any] = ["id": self.movie.id,
                                        "poster": self.movie.poster_path!,
                                        "overview": self.movie.overview,
-                                       "title": self.movie.title]
+                                       "title": self.movie.title,
+                                       "by": thisUser]
         ref.child(String(self.movie.id)).setValue(userData)
     }
     

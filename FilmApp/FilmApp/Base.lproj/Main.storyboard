@@ -30,8 +30,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9w5-X3-BZ7">
-                                <rect key="frame" x="94" y="95" width="187" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9w5-X3-BZ7">
+                                <rect key="frame" x="80" y="95" width="215" height="45"/>
                                 <fontDescription key="fontDescription" name="NoeDisplay-Bold" family="Noe Display" pointSize="45"/>
                                 <color key="textColor" red="0.39615462950478397" green="0.91162389516830444" blue="0.73734542551682369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -202,7 +202,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJv-W6-ZiF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJv-W6-ZiF">
                                 <rect key="frame" x="50" y="95" width="275" height="45"/>
                                 <fontDescription key="fontDescription" name="NoeDisplay-Bold" family="Noe Display" pointSize="45"/>
                                 <color key="textColor" red="0.39615462950000002" green="0.91162389519999998" blue="0.73734542550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -644,6 +644,7 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="icons8-plus-filled-50 (1)"/>
+                                <state key="selected" image="icons8-waste-filled-50"/>
                                 <connections>
                                     <action selector="watchlistAction:" destination="7jd-qg-cfQ" eventType="touchUpInside" id="8wv-Us-d3k"/>
                                 </connections>
@@ -705,6 +706,7 @@
                         <outlet property="moviePoster" destination="oMQ-hI-huO" id="xJJ-1q-e8j"/>
                         <outlet property="movieTitle" destination="S02-bB-x8l" id="I1z-gQ-gIX"/>
                         <outlet property="watchlistButton" destination="nk7-qY-gA9" id="lWN-uc-KCT"/>
+                        <outlet property="watchlistLabel" destination="A0D-bh-VLY" id="op4-ll-v7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEC-pI-RER" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -893,13 +895,14 @@
     </scenes>
     <resources>
         <image name="icons8-plus-filled-50 (1)" width="50" height="50"/>
+        <image name="icons8-waste-filled-50" width="50" height="50"/>
         <image name="star" width="30" height="30"/>
         <image name="user_group_man_man" width="30" height="30"/>
         <image name="user_male" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FVA-LE-C7e"/>
-        <segue reference="UBI-IS-FFT"/>
+        <segue reference="4WF-Z7-gJt"/>
+        <segue reference="iCx-Gz-v43"/>
         <segue reference="X6l-uR-ecP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,9 +14,30 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var moviePlot: UILabel!
     @IBOutlet weak var watchlistButton: UIButton!
-    
+    @IBOutlet weak var watchlistLabel: UILabel!
     @IBAction func watchlistAction(_ sender: Any) {
-        addMovie()
+        if watchlistButton.isSelected == true {
+            removeMovie()
+        } else {
+            addMovie()
+        }
+        
+        watchlistButton.isSelected = !watchlistButton.isSelected
+        
+    }
+
+    func removeMovie() {
+        let userID = Auth.auth().currentUser!.uid
+        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
+        ref.child(String(describing: movie.id)).removeValue(completionBlock: { (error, refer) in
+            if error != nil {
+                print(error)
+            } else {
+                print(refer)
+                print("Child Removed Correctly")
+            }
+        })
+        self.watchlistLabel.text = "Add to watchlist"
     }
     
     func addMovie() {
@@ -27,11 +48,13 @@ class MovieDetailsViewController: UIViewController {
                                         "overview": self.movie.overview,
                                         "title": self.movie.title]
         ref.child(String(self.movie.id)).setValue(userData)
+        self.watchlistLabel.text = "Remove from watchlist"
     }
     
     var movie: Movie!
     let baseURL = "https://image.tmdb.org/t/p/w300"
     var completeURL = "https://i.imgur.com/69nFCBj.jpg"
+    var watchList: [String] = []
     
     func updateUI() {
         movieTitle.text = movie.title
@@ -43,8 +66,26 @@ class MovieDetailsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        let userID = Auth.auth().currentUser!.uid
+        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
         super.viewDidLoad()
         updateUI()
+        ref.observe(.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.watchList = []
+                for movies in snapshot.children.allObjects as! [DataSnapshot] {
+                    let movieObject = movies.value as? [String: AnyObject]
+                    let title = movieObject!["title"]
+                    self.watchList.append(title as! String)
+                }
+            }
+            if self.watchList.contains(self.movie.title) {
+                self.watchlistButton.isSelected = true
+                self.watchlistLabel.text = "Remove from watchlist"
+            }
+        })
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
