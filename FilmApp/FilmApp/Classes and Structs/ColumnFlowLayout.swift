@@ -9,7 +9,13 @@
 import UIKit
 
 class ColumnFlowLayout: UICollectionViewFlowLayout {
-
+    static let columnLayout = ColumnFlowLayout(
+        cellsPerRow: 3,
+        minimumInteritemSpacing: 10,
+        minimumLineSpacing: 10,
+        sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    )
+    
     let cellsPerRow: Int
     override var itemSize: CGSize {
         get {

@@ -15,13 +15,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
     var movieList = [Movie]()
     var searchQueries = ["api_key":"15d0d9f81918875498b3c675e590ae34", "query":""]
     
-    let columnLayout = ColumnFlowLayout(
-        cellsPerRow: 3,
-        minimumInteritemSpacing: 10,
-        minimumLineSpacing: 10,
-        sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    )
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
         let query = searchBar.text!
@@ -32,7 +25,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
                 self.updateUI(with: movieList)
             }
         }
-        collectionView?.collectionViewLayout = columnLayout
+        collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
     }
     
     override func viewDidLoad() {

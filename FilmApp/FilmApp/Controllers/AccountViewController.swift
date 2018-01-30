@@ -51,13 +51,6 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
     
     var userID = Auth.auth().currentUser!.uid
     var currentUser: User!
-
-    let columnLayout = ColumnFlowLayout(
-        cellsPerRow: 3,
-        minimumInteritemSpacing: 10,
-        minimumLineSpacing: 10,
-        sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    )
     
     func addUser() {
         let thisUser = Auth.auth().currentUser!.uid
@@ -119,7 +112,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 self.movieList = self.recList
             }
         })
-        collectionView?.collectionViewLayout = columnLayout
+        collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
     }
     
     func updateUI(with movieList: [Movie]) {

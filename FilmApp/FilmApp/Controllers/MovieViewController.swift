@@ -35,12 +35,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     var movieList = [Movie]()
     
-    let columnLayout = ColumnFlowLayout(
-        cellsPerRow: 3,
-        minimumInteritemSpacing: 10,
-        minimumLineSpacing: 10,
-        sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    )
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +46,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
                 self.updateUI(with: movieList)
             }
         }
-        collectionView?.collectionViewLayout = columnLayout
+        collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
         self.navigationItem.setHidesBackButton(true, animated:true);
     }
     
