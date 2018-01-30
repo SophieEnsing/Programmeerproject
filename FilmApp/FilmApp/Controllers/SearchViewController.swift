@@ -68,9 +68,5 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
             }
         }
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }
 

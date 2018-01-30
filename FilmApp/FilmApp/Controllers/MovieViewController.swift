@@ -84,8 +84,4 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
             }
         }
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }

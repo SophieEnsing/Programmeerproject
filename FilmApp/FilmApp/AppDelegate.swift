@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         -> Bool {
             FirebaseApp.configure()
             UINavigationBar.appearance().barStyle = .blackOpaque
+            UIApplication.shared.statusBarStyle = .lightContent
             return true
     }
 
