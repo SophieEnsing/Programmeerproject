@@ -15,6 +15,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
     @IBAction func addFriendAction(_ sender: Any) {
         addUser()
     }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var friendButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBAction func segmentChanged(_ sender: Any) {
@@ -124,6 +125,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         DispatchQueue.main.async {
             self.movieList = movieList
             self.collectionView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
     
