@@ -9,7 +9,7 @@
 import UIKit
 
 class ColumnFlowLayout: UICollectionViewFlowLayout {
-    
+
     let cellsPerRow: Int
     override var itemSize: CGSize {
         get {

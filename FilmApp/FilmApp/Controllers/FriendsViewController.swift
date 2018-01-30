@@ -86,14 +86,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserDetailsSegue" {
             if let destination = segue.destination as? AccountViewController {
@@ -104,5 +96,13 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
                 destination.currentUser = selectedCell
             }
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

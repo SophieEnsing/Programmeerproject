@@ -16,9 +16,6 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
     var friendList = [User]()
     var movie: Movie!
     
-    let baseURL = "https://image.tmdb.org/t/p/w300"
-    var completeURL = "https://i.imgur.com/69nFCBj.jpg"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -60,14 +57,6 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "confirmRecommendation" {
             if let destination = segue.destination as? ConfirmRecommendationViewController {
@@ -78,5 +67,13 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
                 destination.movie = movie
             }
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

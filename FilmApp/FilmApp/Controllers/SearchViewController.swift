@@ -53,23 +53,16 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
-        
         let thisMovie = movieList[indexPath.row]
         cell.filmPoster.contentMode = .scaleAspectFill
-        
-        let baseURL = "https://image.tmdb.org/t/p/w300"
-        var completeURL = "https://i.imgur.com/69nFCBj.jpg"
+        var completeURL = MovieController.completeURL
         
         if thisMovie.poster_path != nil {
-            completeURL = baseURL + String(describing: thisMovie.poster_path!)
+            completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
         }
         
         cell.filmPoster.downloadedFrom(link: completeURL)
         return cell
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,6 +74,10 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
                 destination.movie = selectedCell
             }
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

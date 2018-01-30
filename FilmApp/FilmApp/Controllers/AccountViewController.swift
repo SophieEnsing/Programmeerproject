@@ -44,9 +44,11 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
             }
         }
     }
+    
     var watchList = [Movie]()
     var recList = [Movie]()
     var movieList = [Movie]()
+    
     var userID = Auth.auth().currentUser!.uid
     var currentUser: User!
 
@@ -117,7 +119,6 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 self.movieList = self.recList
             }
         })
-        
         collectionView?.collectionViewLayout = columnLayout
     }
     
@@ -138,24 +139,14 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         
         let thisMovie = movieList[indexPath.row]
         cell.filmPoster.contentMode = .scaleAspectFill
-        
-        let baseURL = "https://image.tmdb.org/t/p/w300"
-        var completeURL = "https://i.imgur.com/69nFCBj.jpg"
+        var completeURL = MovieController.completeURL
         
         if thisMovie.poster_path != nil {
-            completeURL = baseURL + String(describing: thisMovie.poster_path!)
+            completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
         }
         
         cell.filmPoster.downloadedFrom(link: completeURL)
         return cell
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -167,6 +158,14 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 destination.movie = selectedCell
             }
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }
 

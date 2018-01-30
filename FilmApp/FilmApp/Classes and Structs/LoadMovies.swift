@@ -19,6 +19,8 @@ extension URL {
 
 class MovieController {
     static let shared = MovieController()
+    static let baseURL = "https://image.tmdb.org/t/p/w300"
+    static var completeURL = "https://i.imgur.com/69nFCBj.jpg"
     
     func fetchMovies(baseURL: URL, queries: [String: String], completion: @escaping ([Movie]?) -> Void) {
         let movieURL = baseURL.withQueries(queries)!
@@ -36,4 +38,6 @@ class MovieController {
         }
         task.resume()
     }
+    
+    
 }

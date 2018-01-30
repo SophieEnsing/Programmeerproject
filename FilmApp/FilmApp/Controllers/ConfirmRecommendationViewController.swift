@@ -15,7 +15,7 @@ class ConfirmRecommendationViewController: UIViewController {
     @IBAction func confirmPressed(_ sender: Any) {
         addMovie()
     }
-    
+
     var movie: Movie!
     var user: User!
     
@@ -27,7 +27,8 @@ class ConfirmRecommendationViewController: UIViewController {
     func addMovie() {
         let thisUser = Auth.auth().currentUser!.uid
         let userID = user.id
-        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("recs")
+        let ref: DatabaseReference! = Database.database().reference().child("users")
+                                            .child(userID).child("recs")
         let userData: [String: Any] = ["id": self.movie.id,
                                        "poster": self.movie.poster_path!,
                                        "overview": self.movie.overview,
@@ -36,23 +37,14 @@ class ConfirmRecommendationViewController: UIViewController {
         ref.child(String(self.movie.id)).setValue(userData)
     }
     
-    let baseURL = "https://image.tmdb.org/t/p/w300"
-    var completeURL = "https://i.imgur.com/69nFCBj.jpg"
+    var completeURL = MovieController.completeURL
     
     func updateUI() {
         textLabel.text = "Recommend \(movie.title) to \(user.username)?"
         if movie.poster_path != nil {
-            completeURL = baseURL + String(describing: movie.poster_path!)
+            completeURL = MovieController.baseURL + String(describing: movie.poster_path!)
         }
         moviePoster.downloadedFrom(link: completeURL)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,5 +53,13 @@ class ConfirmRecommendationViewController: UIViewController {
                 destination.movie = movie
             }
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
