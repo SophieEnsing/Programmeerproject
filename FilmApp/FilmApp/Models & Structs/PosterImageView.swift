@@ -2,6 +2,9 @@
 //  PosterImageView.swift
 //  FilmApp
 //
+//  This subclass for imageviews add functions to
+//  download images from the API.
+//
 //  Created by Sophie Ensing on 01-02-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

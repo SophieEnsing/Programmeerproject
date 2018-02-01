@@ -2,6 +2,10 @@
 //  MovieDetailsViewController.swift
 //  FilmApp
 //
+//  This view controller shows a selected movie
+//  with the plot. It's possible here to add
+//  a film to a watchlist or recommend it to a friend.
+//
 //  Created by Sophie Ensing on 19-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

@@ -2,6 +2,10 @@
 //  AccountViewController.swift
 //  FilmApp
 //
+//  This view controller shows the
+//  account details of either the logged in user
+//  or a selected user (from the friendlist for example)
+//
 //  Created by Sophie Ensing on 22-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

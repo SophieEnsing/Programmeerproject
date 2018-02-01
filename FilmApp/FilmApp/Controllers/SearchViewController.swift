@@ -2,6 +2,9 @@
 //  SearchViewController.swift
 //  FilmApp
 //
+//  The goal of this controller is to search for
+//  movies using the movie database API.
+//
 //  Created by Sophie Ensing on 22-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

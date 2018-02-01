@@ -2,6 +2,9 @@
 //  ConfirmRecommendationViewController.swift
 //  FilmApp
 //
+//  This view controller is used to confirm
+//  the recommendation the user wants to make.
+//
 //  Created by Sophie Ensing on 25-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

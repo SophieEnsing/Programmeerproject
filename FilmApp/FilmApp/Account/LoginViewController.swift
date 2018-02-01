@@ -2,6 +2,9 @@
 //  LoginViewController.swift
 //  FilmApp
 //
+//  This view controller allows the user
+//  to log in to the app.
+//
 //  Created by Sophie Ensing on 12-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

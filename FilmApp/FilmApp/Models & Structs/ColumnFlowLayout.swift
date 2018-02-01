@@ -1,6 +1,10 @@
 //
 //  ColumnFlowLayout.swift
 //  FilmApp
+
+//  The columnflowlayout makes sure the layout of
+//  the columns has a certain number of columns
+//  and scales the cells accordingly.
 //
 //  Created by Sophie Ensing on 19-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.

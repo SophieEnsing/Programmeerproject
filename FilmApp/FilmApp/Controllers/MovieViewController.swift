@@ -2,6 +2,10 @@
 //  MovieCollectionViewController.swift
 //  FilmApp
 //
+//  This view controller show the most
+//  popular movies at the moment. This data
+//  is generated from the movie database API.
+//
 //  Created by Sophie Ensing on 15-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

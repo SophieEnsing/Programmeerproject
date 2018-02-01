@@ -2,6 +2,9 @@
 //  RecommendViewController.swift
 //  FilmApp
 //
+//  This view controller lets the user
+//  select a friend to recommend movie to. 
+//
 //  Created by Sophie Ensing on 24-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //

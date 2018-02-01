@@ -2,6 +2,9 @@
 //  SignUpViewController.swift
 //  FilmApp
 //
+//  This view controller allows
+//  the user to sign up for an account.
+//
 //  Created by Sophie Ensing on 15-01-18.
 //  Copyright © 2018 Sophie Ensing. All rights reserved.
 //
