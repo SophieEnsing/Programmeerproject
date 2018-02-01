@@ -142,10 +142,12 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         }
     }
 
+    // Number of cells are based on the number of movies to display.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movieList.count
     }
     
+    // Download all movieposters and display them in the collectionviewcells.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
 
@@ -153,6 +155,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         cell.filmPoster.contentMode = .scaleAspectFill
         var completeURL = MovieController.completeURL
 
+        // If there's no poster available, use defaultimage.
         if thisMovie.poster_path != nil {
             completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
         }

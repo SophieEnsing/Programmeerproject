@@ -53,11 +53,12 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    // Load users into tableview.
+    // Load users into tableview based on number of users.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendList.count
     }
     
+    // Display usernames in the userlabels.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! TableViewCell
         let thisUser = friendList[indexPath.row]

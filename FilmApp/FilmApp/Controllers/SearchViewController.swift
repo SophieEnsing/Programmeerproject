@@ -44,8 +44,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
 
-
-
     func updateUI(with movieList: [Movie]) {
         DispatchQueue.main.async {
             self.movieList = movieList
@@ -53,16 +51,19 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
         }
     }
     
+    // Number of cells are based on the number of movies to display.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movieList.count
     }
 
+    // Download all movieposters and display them in the collectionviewcells.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
         let thisMovie = movieList[indexPath.row]
         cell.filmPoster.contentMode = .scaleAspectFill
         var completeURL = MovieController.completeURL
-
+        
+        // If there's no poster available, use defaultimage.
         if thisMovie.poster_path != nil {
             completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
         }

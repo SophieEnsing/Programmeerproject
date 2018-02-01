@@ -97,6 +97,7 @@ class MovieDetailsViewController: UIViewController {
             }
         })
         
+        // Check if the movie was recommended to the logged user.
         ref.child("recs").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 var recList: [String] = []
@@ -106,6 +107,7 @@ class MovieDetailsViewController: UIViewController {
                     let user = movieObject!["by"]
                     recList.append(title as! String)
                     
+                    // If the movie was recommended, display which user recommended it.
                     if recList.contains(self.movie.title) {
                         let userRef = Database.database().reference().child("users").child(user as! String)
                         
