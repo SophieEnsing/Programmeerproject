@@ -95,7 +95,7 @@
 			children = (
 				A940A7A3200CBE0F000EBEA7 /* Account */,
 				A940A7A4200CBEAB000EBEA7 /* Controllers */,
-				A940A7A5200CBEBE000EBEA7 /* Classes and Structs */,
+				A940A7A5200CBEBE000EBEA7 /* Models & Structs */,
 				A936129C2007906600F9E2DE /* AppDelegate.swift */,
 				A9FC4E4C2012102700E21DE8 /* Main.storyboard */,
 				A93612A32007906600F9E2DE /* Assets.xcassets */,
@@ -130,7 +130,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		A940A7A5200CBEBE000EBEA7 /* Classes and Structs */ = {
+		A940A7A5200CBEBE000EBEA7 /* Models & Structs */ = {
 			isa = PBXGroup;
 			children = (
 				A9F9E44B2011F4450078B545 /* ColumnFlowLayout.swift */,
@@ -140,7 +140,7 @@
 				A940A7A1200CB9BC000EBEA7 /* Movie.swift */,
 				A941FBCC2018C7F8004849D6 /* User.swift */,
 			);
-			path = "Classes and Structs";
+			path = "Models & Structs";
 			sourceTree = "<group>";
 		};
 		EE49F052B0D58279C0FD9E6F /* Frameworks */ = {

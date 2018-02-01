@@ -37,7 +37,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
+        collectionView.dataSource = self // = MyDataSource(withMovieList: movieList)
         
         MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/movie/popular?")!, queries: ["api_key":"15d0d9f81918875498b3c675e590ae34"]){ (movieList) in
             if let movieList = movieList {
