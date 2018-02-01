@@ -47,23 +47,23 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieList.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
-        let thisMovie = movieList[indexPath.row]
-        cell.filmPoster.contentMode = .scaleAspectFill
-        var completeURL = MovieController.completeURL
-
-        if thisMovie.poster_path != nil {
-            completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
-        }
-
-        cell.filmPoster.downloadedFrom(link: completeURL)
-        return cell
-    }
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return movieList.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
+//        let thisMovie = movieList[indexPath.row]
+//        cell.filmPoster.contentMode = .scaleAspectFill
+//        var completeURL = MovieController.completeURL
+//
+//        if thisMovie.poster_path != nil {
+//            completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
+//        }
+//
+//        cell.filmPoster.downloadedFrom(link: completeURL)
+//        return cell
+//    }
     
     // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
