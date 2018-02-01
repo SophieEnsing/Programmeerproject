@@ -684,10 +684,17 @@
                                     <segue destination="dGG-hS-kTO" kind="show" identifier="RecommendSegue" id="FG3-j2-VvZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQW-kl-usI">
+                                <rect key="frame" x="173" y="154" width="182" height="18"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29776808570000002" green="0.31501001429999997" blue="0.33119844539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S02-bB-x8l" firstAttribute="top" secondItem="IBM-1D-ab7" secondAttribute="top" constant="20" id="04R-C2-1tJ"/>
+                            <constraint firstItem="rQW-kl-usI" firstAttribute="top" secondItem="2RE-jn-ig2" secondAttribute="bottom" constant="20" id="0Qs-4T-uGh"/>
                             <constraint firstItem="2RE-jn-ig2" firstAttribute="leading" secondItem="oMQ-hI-huO" secondAttribute="trailing" constant="20" id="1Fz-Qc-ne8"/>
                             <constraint firstItem="oMQ-hI-huO" firstAttribute="leading" secondItem="IBM-1D-ab7" secondAttribute="leading" constant="20" id="1Hk-gM-dIR"/>
                             <constraint firstItem="Asu-dQ-0ht" firstAttribute="leading" secondItem="IBM-1D-ab7" secondAttribute="leading" constant="20" id="37s-F9-NSp"/>
@@ -696,10 +703,12 @@
                             <constraint firstItem="2RE-jn-ig2" firstAttribute="top" secondItem="nk7-qY-gA9" secondAttribute="bottom" constant="20" id="MU0-8y-9YC"/>
                             <constraint firstItem="Asu-dQ-0ht" firstAttribute="top" secondItem="oMQ-hI-huO" secondAttribute="bottom" constant="20" id="Q5G-1Z-LeM"/>
                             <constraint firstItem="IBM-1D-ab7" firstAttribute="trailing" secondItem="Asu-dQ-0ht" secondAttribute="trailing" constant="20" id="QSX-pO-i4Y"/>
+                            <constraint firstItem="IBM-1D-ab7" firstAttribute="trailing" secondItem="rQW-kl-usI" secondAttribute="trailing" constant="20" id="TKU-Us-ILs"/>
                             <constraint firstItem="S02-bB-x8l" firstAttribute="leading" secondItem="oMQ-hI-huO" secondAttribute="trailing" constant="20" id="Xfl-Lj-fZZ"/>
                             <constraint firstItem="nk7-qY-gA9" firstAttribute="top" secondItem="S02-bB-x8l" secondAttribute="bottom" constant="20" id="dwv-3A-nSj"/>
                             <constraint firstItem="A0D-bh-VLY" firstAttribute="top" secondItem="S02-bB-x8l" secondAttribute="bottom" constant="25" id="eRW-ue-C36"/>
                             <constraint firstItem="j1p-4E-Cyf" firstAttribute="leading" secondItem="2RE-jn-ig2" secondAttribute="trailing" constant="10" id="fet-Sa-lYa"/>
+                            <constraint firstItem="rQW-kl-usI" firstAttribute="leading" secondItem="oMQ-hI-huO" secondAttribute="trailing" constant="20" id="hcD-0l-3Im"/>
                             <constraint firstItem="IBM-1D-ab7" firstAttribute="trailing" secondItem="j1p-4E-Cyf" secondAttribute="trailing" constant="20" id="jpm-GZ-fE4"/>
                             <constraint firstItem="nk7-qY-gA9" firstAttribute="leading" secondItem="oMQ-hI-huO" secondAttribute="trailing" constant="20" id="ncu-R8-fJx"/>
                             <constraint firstItem="IBM-1D-ab7" firstAttribute="trailing" secondItem="S02-bB-x8l" secondAttribute="trailing" constant="20" id="rQ8-aT-sXz"/>
@@ -711,6 +720,7 @@
                         <outlet property="filmPoster" destination="oMQ-hI-huO" id="MBe-z7-WXL"/>
                         <outlet property="moviePlot" destination="Asu-dQ-0ht" id="Mh4-uX-c9b"/>
                         <outlet property="movieTitle" destination="S02-bB-x8l" id="I1z-gQ-gIX"/>
+                        <outlet property="recommendedLabel" destination="rQW-kl-usI" id="Dit-Aq-KSm"/>
                         <outlet property="watchlistButton" destination="nk7-qY-gA9" id="lWN-uc-KCT"/>
                         <outlet property="watchlistLabel" destination="A0D-bh-VLY" id="op4-ll-v7m"/>
                     </connections>

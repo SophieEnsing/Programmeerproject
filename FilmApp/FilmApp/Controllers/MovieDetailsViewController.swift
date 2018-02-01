@@ -17,7 +17,6 @@ class MovieDetailsViewController: UIViewController {
     // MARK: Properties
     var movie: Movie!
     var completeURL = MovieController.completeURL
-    var watchList: [String] = []
     
     // MARK: Outlets
     @IBOutlet weak var filmPoster: PosterImageView!
@@ -25,6 +24,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var moviePlot: UILabel!
     @IBOutlet weak var watchlistButton: UIButton!
     @IBOutlet weak var watchlistLabel: UILabel!
+    @IBOutlet weak var recommendedLabel: UILabel!
     
     // MARK: Actions
     @IBAction func watchlistAction(_ sender: Any) {
@@ -44,7 +44,7 @@ class MovieDetailsViewController: UIViewController {
         let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
         ref.child(String(describing: movie.id)).removeValue(completionBlock: { (error, refer) in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 print(refer)
             }
@@ -66,8 +66,6 @@ class MovieDetailsViewController: UIViewController {
         self.watchlistLabel.text = "Remove from watchlist"
     }
     
-
-    
     func updateUI() {
         movieTitle.text = movie.title
         moviePlot.text = movie.overview
@@ -79,27 +77,47 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         let userID = Auth.auth().currentUser!.uid
-        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
+        let ref: DatabaseReference! = Database.database().reference().child("users").child(userID)
         super.viewDidLoad()
         updateUI()
         
         // Check if the movie is on the users watchlist and edit label.
-        ref.observe(.value, with: { (snapshot) in
+        ref.child("watchlist").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
-                self.watchList = []
+                var watchList: [String] = []
                 for movies in snapshot.children.allObjects as! [DataSnapshot] {
                     let movieObject = movies.value as? [String: AnyObject]
                     let title = movieObject!["title"]
-                    self.watchList.append(title as! String)
+                    watchList.append(title as! String)
                 }
-            }
-            if self.watchList.contains(self.movie.title) {
-                self.watchlistButton.isSelected = true
-                self.watchlistLabel.text = "Remove from watchlist"
+                if watchList.contains(self.movie.title) {
+                    self.watchlistButton.isSelected = true
+                    self.watchlistLabel.text = "Remove from watchlist"
+                }
             }
         })
         
-        
+        ref.child("recs").observe(.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                var recList: [String] = []
+                for movies in snapshot.children.allObjects as! [DataSnapshot] {
+                    let movieObject = movies.value as? [String: AnyObject]
+                    let title = movieObject!["title"]
+                    let user = movieObject!["by"]
+                    recList.append(title as! String)
+                    
+                    if recList.contains(self.movie.title) {
+                        let userRef = Database.database().reference().child("users").child(user as! String)
+                        
+                        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                            let value = snapshot.value as? NSDictionary
+                            let username = value?["username"] as? String ?? ""
+                            self.recommendedLabel.text = "\(username) recommended this movie to you."
+                        })
+                    }
+                }
+            }
+        })
     }
 
     // Recommend segue to recommend this movie to user.
