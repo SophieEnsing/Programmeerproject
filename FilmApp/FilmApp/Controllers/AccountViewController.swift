@@ -94,10 +94,10 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 self.watchList = []
                 for movies in snapshot.children.allObjects as! [DataSnapshot] {
                     let movieObject = movies.value as? [String: AnyObject]
-                    let id = movieObject!["id"]
                     let title = movieObject!["title"]
-                    let overview = movieObject!["overview"]
                     let poster = movieObject!["poster"]
+                    let overview = movieObject!["overview"]
+                    let id = movieObject!["id"]
                     let movieToBeAdded = Movie(id: id! as! Int, title: title! as! String,
                                 overview: overview! as! String, poster_path: poster as? String)
                     self.watchList.append(movieToBeAdded)
@@ -106,7 +106,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 self.updateUI(with: self.movieList)
             }
         })
-        
+
         // Get the users recommended movies.
         ref.child("recs").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
@@ -124,9 +124,11 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 self.movieList = self.recList
             }
         })
+
         // Add column layout to collectionview.
         collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
     }
+
     
     func updateUI(with movieList: [Movie]) {
         DispatchQueue.main.async {
@@ -135,25 +137,25 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
             self.activityIndicator.stopAnimating()
         }
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return movieList.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
-//
-//        let thisMovie = movieList[indexPath.row]
-//        cell.filmPoster.contentMode = .scaleAspectFill
-//        var completeURL = MovieController.completeURL
-//
-//        if thisMovie.poster_path != nil {
-//            completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
-//        }
-//
-//        cell.filmPoster.downloadedFrom(link: completeURL)
-//        return cell
-//    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movieList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! CollectionViewCell
+
+        let thisMovie = movieList[indexPath.row]
+        cell.filmPoster.contentMode = .scaleAspectFill
+        var completeURL = MovieController.completeURL
+
+        if thisMovie.poster_path != nil {
+            completeURL = MovieController.baseURL + String(describing: thisMovie.poster_path!)
+        }
+
+        cell.filmPoster.downloadedFrom(link: completeURL)
+        return cell
+    }
     
     // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
