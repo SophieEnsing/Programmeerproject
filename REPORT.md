@@ -1,4 +1,4 @@
-# Programmeerproject - Final Report
+# Final Report
 ## Beschrijving
 Er zijn diverse apps beschikbaar om een watchlist bij te houden voor films. Wat hier ontbreekt is de mogelijkheid tot interactie tussen gebruikers. In het dagelijks geven vrienden elkaar vaak aanbevelingen op het gebied van films, maar de keuze maken voor een film is toch vaak lastig. De app Rec. biedt hiervoor een oplossing door gebruikers de mogelijkheid te geven om niet alleen films aan een watchlist toe te voegen, maar ook aan te raden aan vrienden.
 
