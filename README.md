@@ -12,5 +12,3 @@ Er zijn diverse apps beschikbaar om een watchlist bij te houden voor films. Wat 
 a public domain release, which releases your code to the public without any restrictions (you could also use the unlicense for this)
 a copyright notice which states who actually owns the rights to the materials in the repository (probably only you)
 Make sure that you have the correct license in your LICENSE file.
-
-[![BCH compliance](https://bettercodehub.com/edge/badge/SophieEnsing/Programmeerproject?branch=master)](https://bettercodehub.com/)
