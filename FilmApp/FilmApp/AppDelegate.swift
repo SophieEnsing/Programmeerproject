@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
+            // Make the Firebase connection.
             FirebaseApp.configure()
+            
+            // Apply styling to the navigation and status bar.
             UINavigationBar.appearance().barStyle = .blackOpaque
             UIApplication.shared.statusBarStyle = .lightContent
             return true
