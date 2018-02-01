@@ -5,6 +5,8 @@ Er zijn diverse apps beschikbaar om een watchlist bij te houden voor films. Wat 
 ## Ontwerp
 Alle viewcontrollers, structs en modellen worden hieronder uitgelegd. Alle view controllers (behalve de Login/SignUp) zijn embedded in een navigation view controller, om zo de navigatie optimaal te maken tussen de verschillende schermen.
 
+![Storyboard](docs/Storyboard.png)
+
 ### LoginViewController/SignUpViewController
 Het eerste scherm bij het opstarten van de app is het login scherm. Als de gebruiker een account heeft kan hier ingelogd worden met het emailadres en een wachtwoord. Anders is het mogelijk om een account aan te maken met email, gebruikersnaam en wachtwoord. Na allebei de acties wordt de gebruiker doorgestuurd naar het beginscherm van de applicatie. Als de gebruiker de velden niet correct invult of als een email adres bijvoorbeeld al bestaat bij het aanmelden voor een account, verschijnt er een pop-up met de juiste error.
 
@@ -40,9 +42,6 @@ Deze class wordt gebruikt om films op te halen via de API op basis van de meegeg
 
 ### ColumnFlowLayout
 Deze class zorgt ervoor dat de collection views er goed uit zien en alle cellen op de juiste manier geschaald worden. Zo zijn alle collection views altijd qua verhoudingen hetzelfde, namelijk 3 cellen per rij met een bepaalde afstand er tussen.
-
-![Storyboard](docs/Storyboard.png)
-
 
 ## Uitdagingen
 Aan het begin ging er het een en ander mis met het inladen van de filmdata. Er worden bij deze API diverse basisurl's gebruikt waar rekening mee gehouden moet worden. Daarnaast ontbreekt er bij sommige films een poster_path waardoor er een onduidelijke error kwam. Dit is gelukkig opgelost met een default afbeelding voor het geval er geen poster te vinden is.
