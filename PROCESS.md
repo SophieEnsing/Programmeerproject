@@ -44,4 +44,4 @@ Stukken code herschrijven zodat functies op meerdere plekken gebruikt kunnen wor
 Processbook aanvullen en werken aan het verslag. Verder heb ik gewerkt aan het herbruikbaar maken van de functies voor de collection views.
 
 ### 01/02
-
+Collection views zijn nu beter te gebruiken in de verschillende view controllers. Hierdoor is er een 8 bereikt op Better Code Hub. Daarnaast is er ook gewerkt aan overige dubbele code en het toevoegen van comments. Alle overige zaken rondom het project, zoals het verslag zijn ook afgerond vandaag.
