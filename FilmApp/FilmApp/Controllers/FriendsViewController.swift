@@ -49,8 +49,8 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
                 self.friendList = []
                 for users in snapshot.children.allObjects as! [DataSnapshot] {
                     let userObject = users.value as? [String: String]
-                    let username = userObject!["username"]
                     let id = users.key
+                    let username = userObject!["username"]
                     let userToBeAdded = User(id: id, username: username!)
                     self.friendList.append(userToBeAdded)
                 }
