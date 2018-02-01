@@ -21,31 +21,31 @@ In deze controller is ook gebruik gemaakt van segmented control. Het eerste segm
 Deze controller wordt vanuit verschillende schermen bereikt en laat details van de geselecteerde film zien. De poster wordt groot weergegeven met daar onder het plot van de film. Naast de poster staan knoppen om de film aan de watchlist toe te voegen of de film aan te raden. Als de film al op de watchlist staan zijn de knoppen en de tekst anders, want dan kan de film van de watchlist verwijderd worden. Bij het aanraden van een film wordt er geschakeld naar de RecommendViewController. Via de segue wordt de data van de film meegegeven. Als de geselecteerde film aangeraden is aan de huidige gebruiker door een vriend, is dit ook te zien in een textlabel.
 
 ### RecommendViewController/ConfirmRecommendationViewController
-
+In de RecommendViewController worden de vrienden van de gebruiker weergegeven in een table view. Als er een gebruiker geselecteerd wordt om de film aan aan te raden is de ConfirmRecommendationViewController te zien. Hier wordt groot de poster weergegeven met een confirm knop. Als de gebruiker hier op klikt wordt de film opgeslagen in de aangeraden films van de geselecteerde gebruiker in Firebase. Daarna komt de gebruiker weer terug bij het thuisscherm.
 
 ### SearchViewController
-
+In deze controller wordt wederom gebruik gemaakt van een collection view voor het weergeven van de films. Na het invullen van een zoekopdracht worden via de API alle resultaten opgehaald die hier op lijken. Als er een film aangeklikt wordt dan komt de gebruiker weer bij de MovieDetailsViewController van de geselecteerde film.
 
 ### TableViewCell/CollectionViewCell
-
+De TableViewCell wordt gebruikt om gebruikers/vrienden weer te geven met alleen de gebruikersnaam in een textlabel. De CollectionViewCell wordt gebruikt om films weer te geven door middel van de filmposter.
 
 ### Movie/User structs
-
+In de Movie struct worden vanuit de API title, overview, id en poster_path opgehaald. Overige data beschikbaar via de API was buiten de scope voor deze app. De User struct wordt gebruikt om gebruikersdata in op te slaan, deze data bestaat uit een id en gebruikersnaam.
 
 ### PosterImageView
-
+De PosterImageView is een subclasse van ImageView met extra functies. Deze functies worden gebruikt in de CollectionViewCells om de filmposters in te laden. Deze worden via een link van internet gedownload en vervolgens in de app weergegeven. 
 
 ### LoadMovies
-
+Deze class wordt gebruikt om films op te halen via de API op basis van de meegegeven query. De query bestaat altijd uit een API key met daarbij bijvoorbeeld een film titel. De resultaten worden ook goed opgeslagen met behulp van een JSONDecoder.
 
 ### ColumnFlowLayout
-
-
+Deze class zorgt ervoor dat de collection views er goed uit zien en alle cellen op de juiste manier geschaald worden. Zo zijn alle collection views altijd qua verhoudingen hetzelfde, namelijk 3 cellen per rij met een bepaalde afstand er tussen.
 
 ![Storyboard](docs/Storyboard.png)
 
 
 ## Uitdagingen
+Aan het begin ging er het een en ander mis met het inladen van de filmdata. Er worden bij deze API diverse basisurl's gebruikt waar rekening mee gehouden moet worden. Daarnaast ontbreekt er bij sommige films een poster_path waardoor er een onduidelijke error kwam. Dit is gelukkig opgelost met een default afbeelding voor het geval er geen poster te vinden is.
 Het was erg lastig voor mij om de films op een duidelijke manier weer te geven die er ook mooi uitzag. Uiteindelijk heb ik gekozen voor een collection view waarin alleen de posters zichtbaar zijn. Met behulp van tutorials en door veel te proberen is dit uiteindelijk gelukt. Gedurende het project zijn wel mijn doelstellingen aangepast. Het idee was om nog meer interactie te implementeren tussen gebruikers. Het idee was hier dat gebruikers een stem konden uitbrengen op een aangeraden film. Stel persoon A raadt een film aan aan persoon B, dan kan persoon C nog stemmen of hij het er mee eens is of juist niet. Dit leek mij een leuke interactie omdat het in het dagelijks leven soms ook zo kan gaan, maar het toch vaal een uitdaging is om een fiml uit te zoeken. Dit was echter wel vrij complex en daarnaast is het ook niet zeker of gebruikers echt zo veel moeite willen steken in het gebruikern van de app. Daarom is het idee iets simpeler gehouden.
 
 ## Later werk
