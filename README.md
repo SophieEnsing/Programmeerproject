@@ -12,3 +12,5 @@ Bij deze app is het nodig om in te loggen. De gebruiker ziet als eerste een over
 * Voor de applicatie is gebruikt gemaakt van de API van the Movie Database (https://www.themoviedb.org/)
 * Voor de tabbar iconen zijn iconen gebruikt van icons8 (https://icons8.com/ios-icons/)
 * Voor het inladen van afbeeldingen van internet en het orderen van een collection view is een YouTube tutorial gebruikt van Yp.py (https://www.youtube.com/watch?v=hPJaQ2Fh7Ao&feature=youtu.be)
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/SophieEnsing/Programmeerproject?branch=master)](https://bettercodehub.com/)
