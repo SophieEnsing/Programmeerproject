@@ -152,7 +152,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="filmPoster" destination="ygC-8w-3OK" id="RE2-Rc-q30"/>
-                                            <segue destination="7jd-qg-cfQ" kind="show" identifier="MovieDetailsSegue" id="4WF-Z7-gJt"/>
+                                            <segue destination="7jd-qg-cfQ" kind="show" identifier="SearchMovieDetailsSegue" id="4WF-Z7-gJt"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -372,7 +372,7 @@
                                         <size key="customSize" width="100" height="150"/>
                                         <connections>
                                             <outlet property="filmPoster" destination="aQi-C8-dqO" id="lA1-ap-hfZ"/>
-                                            <segue destination="7jd-qg-cfQ" kind="show" identifier="MovieDetailsSegue" id="FVA-LE-C7e"/>
+                                            <segue destination="7jd-qg-cfQ" kind="show" identifier="ProfileMovieDetailsSegue" id="FVA-LE-C7e"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -564,11 +564,11 @@
             <objects>
                 <viewController id="a46-0H-YmP" customClass="MovieViewController" customModule="FilmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="APS-PA-cUu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mqN-2W-WjN">
-                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                                <rect key="frame" x="0.0" y="10" width="375" height="544"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qRb-In-9a5">
                                     <size key="itemSize" width="120" height="200"/>
@@ -626,24 +626,24 @@
             <objects>
                 <viewController id="7jd-qg-cfQ" customClass="MovieDetailsViewController" customModule="FilmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g5t-4d-Yw9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMQ-hI-huO" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="133" height="200"/>
+                                <rect key="frame" x="20" y="20" width="133" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="duE-xD-Gh8"/>
                                     <constraint firstAttribute="height" constant="200" id="tY2-hq-3vH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S02-bB-x8l">
-                                <rect key="frame" x="173" y="40" width="182" height="24"/>
+                                <rect key="frame" x="173" y="20" width="182" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nk7-qY-gA9">
-                                <rect key="frame" x="173" y="84" width="25" height="25"/>
+                                <rect key="frame" x="173" y="64" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="7Ah-fJ-Hyp"/>
                                     <constraint firstAttribute="width" constant="25" id="Uzt-G8-Vob"/>
@@ -656,25 +656,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to watchlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0D-bh-VLY">
-                                <rect key="frame" x="208" y="89" width="110.5" height="18"/>
+                                <rect key="frame" x="208" y="69" width="110.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asu-dQ-0ht">
-                                <rect key="frame" x="20" y="260" width="335" height="18"/>
+                                <rect key="frame" x="20" y="240" width="335" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommend" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1p-4E-Cyf">
-                                <rect key="frame" x="208" y="132" width="147" height="18"/>
+                                <rect key="frame" x="208" y="112" width="147" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RE-jn-ig2">
-                                <rect key="frame" x="173" y="129" width="25" height="25"/>
+                                <rect key="frame" x="173" y="109" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Hsm-4x-jcu"/>
                                     <constraint firstAttribute="width" constant="25" id="Nkt-KZ-I0j"/>
@@ -724,17 +724,17 @@
             <objects>
                 <viewController id="dGG-hS-kTO" customClass="RecommendViewController" customModule="FilmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ro4-TZ-niz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REd-Zo-ODn">
-                                <rect key="frame" x="20" y="40" width="335" height="31.5"/>
+                                <rect key="frame" x="20" y="20" width="335" height="31.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bAY-ok-e1N">
-                                <rect key="frame" x="10" y="91.5" width="345" height="575.5"/>
+                                <rect key="frame" x="10" y="71.5" width="345" height="482.5"/>
                                 <color key="backgroundColor" red="0.29751864080000001" green="0.31350803379999997" blue="0.33016404510000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.39663571120000002" green="0.90994399790000002" blue="0.73829931019999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.29751864080000001" green="0.31350803379999997" blue="0.33016404510000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -796,24 +796,24 @@
             <objects>
                 <viewController id="I2h-Vj-DBZ" customClass="ConfirmRecommendationViewController" customModule="FilmApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lH0-AA-j6T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommend this movie to someone?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AyS-T8-5gx">
-                                <rect key="frame" x="20" y="40" width="335" height="72"/>
+                                <rect key="frame" x="20" y="20" width="335" height="72"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ckn-f3-wcb" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
-                                <rect key="frame" x="62" y="132" width="250" height="375"/>
+                                <rect key="frame" x="62" y="112" width="250" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="86A-bg-w9x"/>
                                     <constraint firstAttribute="height" constant="375" id="Lgd-2i-Qn7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEt-77-8dy">
-                                <rect key="frame" x="62" y="527" width="250" height="40"/>
+                                <rect key="frame" x="62" y="507" width="250" height="40"/>
                                 <color key="backgroundColor" red="0.39663571120000002" green="0.90994399790000002" blue="0.73829931019999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kDl-vS-s44"/>
@@ -907,7 +907,7 @@
         <image name="user_male" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kVs-4Y-YUO"/>
+        <segue reference="4WF-Z7-gJt"/>
         <segue reference="UBI-IS-FFT"/>
         <segue reference="X6l-uR-ecP"/>
     </inferredMetricsTieBreakers>

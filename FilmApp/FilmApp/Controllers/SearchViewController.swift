@@ -67,7 +67,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
     
     // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MovieDetailsSegue" {
+        if segue.identifier == "SearchMovieDetailsSegue" {
             if let destination = segue.destination as? MovieDetailsViewController {
                 let cell = sender as! CollectionViewCell
                 let indexPath = collectionView.indexPath(for: cell)

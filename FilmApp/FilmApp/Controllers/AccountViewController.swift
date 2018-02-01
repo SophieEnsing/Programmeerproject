@@ -157,7 +157,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
     
     // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MovieDetailsSegue" {
+        if segue.identifier == "ProfileMovieDetailsSegue" {
             if let destination = segue.destination as? MovieDetailsViewController {
                 let cell = sender as! CollectionViewCell
                 let indexPath = collectionView.indexPath(for: cell)
