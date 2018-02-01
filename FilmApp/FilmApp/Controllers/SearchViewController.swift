@@ -41,8 +41,11 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
-    
+
+
+
     func updateUI(with movieList: [Movie]) {
         DispatchQueue.main.async {
             self.movieList = movieList
