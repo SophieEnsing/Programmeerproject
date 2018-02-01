@@ -9,22 +9,29 @@
 import UIKit
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UISearchBarDelegate {
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
+    // MARK: Properties
     var movieList = [Movie]()
     var searchQueries = ["api_key":"15d0d9f81918875498b3c675e590ae34", "query":""]
     
+    // MARK: Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    // MARK: Functions
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+        // Get text from search bar to query the API.
         let query = searchBar.text!
         searchQueries = ["api_key": "15d0d9f81918875498b3c675e590ae34", "query": query]
         collectionView.dataSource = self
+        
+        // Get data from API based on the search bar query.
         MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/search/movie?")!, queries: searchQueries){ (movieList) in
             if let movieList = movieList {
                 self.updateUI(with: movieList)
             }
         }
+        // Add column layout to collectionview.
         collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
     }
     
@@ -58,6 +65,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UISear
         return cell
     }
     
+    // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MovieDetailsSegue" {
             if let destination = segue.destination as? MovieDetailsViewController {

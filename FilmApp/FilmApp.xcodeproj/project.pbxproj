@@ -27,6 +27,8 @@
 		A95A547320122937003B4D1E /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A547220122937003B4D1E /* MovieDetailsViewController.swift */; };
 		A9691DB82016042700910CA5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9691DB72016042700910CA5 /* SearchViewController.swift */; };
 		A9764C43202321BF00A630F5 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9764C42202321BF00A630F5 /* ColumnFlowLayout.swift */; };
+		A9764C452023220500A630F5 /* PosterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9764C442023220500A630F5 /* PosterImageView.swift */; };
+		A9764C4D20232D3800A630F5 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9764C4C20232D3800A630F5 /* CollectionViewDataSource.swift */; };
 		A9BD2873201A101C0039E95B /* ConfirmRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD2872201A101C0039E95B /* ConfirmRecommendationViewController.swift */; };
 		A9FC4E4E2012102700E21DE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FC4E4C2012102700E21DE8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		A95A547220122937003B4D1E /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		A9691DB72016042700910CA5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A9764C42202321BF00A630F5 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
+		A9764C442023220500A630F5 /* PosterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterImageView.swift; sourceTree = "<group>"; };
+		A9764C4C20232D3800A630F5 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		A9BD2872201A101C0039E95B /* ConfirmRecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmRecommendationViewController.swift; sourceTree = "<group>"; };
 		A9FC4E4D2012102700E21DE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6B336E88384C0E3562DC101 /* Pods-FilmApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilmApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilmApp/Pods-FilmApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,12 +137,14 @@
 		A940A7A5200CBEBE000EBEA7 /* Models & Structs */ = {
 			isa = PBXGroup;
 			children = (
-				A940A79F200CB984000EBEA7 /* LoadMovies.swift */,
-				A941FBCA2018B3CC004849D6 /* TableViewCell.swift */,
-				A9764C42202321BF00A630F5 /* ColumnFlowLayout.swift */,
-				A940A7A6200CC868000EBEA7 /* CollectionViewCell.swift */,
 				A940A7A1200CB9BC000EBEA7 /* Movie.swift */,
 				A941FBCC2018C7F8004849D6 /* User.swift */,
+				A941FBCA2018B3CC004849D6 /* TableViewCell.swift */,
+				A940A7A6200CC868000EBEA7 /* CollectionViewCell.swift */,
+				A940A79F200CB984000EBEA7 /* LoadMovies.swift */,
+				A9764C442023220500A630F5 /* PosterImageView.swift */,
+				A9764C42202321BF00A630F5 /* ColumnFlowLayout.swift */,
+				A9764C4C20232D3800A630F5 /* CollectionViewDataSource.swift */,
 			);
 			path = "Models & Structs";
 			sourceTree = "<group>";
@@ -312,6 +318,8 @@
 				A940A7A9200CCA3C000EBEA7 /* MovieViewController.swift in Sources */,
 				A93DED42200CB29B0035AF51 /* SignUpViewController.swift in Sources */,
 				A936129D2007906600F9E2DE /* AppDelegate.swift in Sources */,
+				A9764C4D20232D3800A630F5 /* CollectionViewDataSource.swift in Sources */,
+				A9764C452023220500A630F5 /* PosterImageView.swift in Sources */,
 				A940A7A0200CB984000EBEA7 /* LoadMovies.swift in Sources */,
 				A911936720164095006CD2FD /* AccountViewController.swift in Sources */,
 				A941FBCF2018CD28004849D6 /* RecommendViewController.swift in Sources */,

@@ -9,6 +9,8 @@
 import UIKit
 
 class ColumnFlowLayout: UICollectionViewFlowLayout {
+    // MARK: Properties
+    // Set the column layout to 3 cells per row with the correct spacing.
     static let columnLayout = ColumnFlowLayout(
         cellsPerRow: 3,
         minimumInteritemSpacing: 10,
@@ -17,6 +19,8 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
     )
     
     let cellsPerRow: Int
+    
+    // Edit cell size.
     override var itemSize: CGSize {
         get {
             guard let collectionView = collectionView else { return super.itemSize }
@@ -29,6 +33,7 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
         }
     }
     
+    // Set all the correct data.
     init(cellsPerRow: Int, minimumInteritemSpacing: CGFloat = 0, minimumLineSpacing: CGFloat = 0, sectionInset: UIEdgeInsets = .zero) {
         self.cellsPerRow = cellsPerRow
         super.init()
@@ -42,6 +47,7 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Functions
     override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
         let context = super.invalidationContext(forBoundsChange: newBounds) as! UICollectionViewFlowLayoutInvalidationContext
         context.invalidateFlowLayoutDelegateMetrics = newBounds != collectionView?.bounds

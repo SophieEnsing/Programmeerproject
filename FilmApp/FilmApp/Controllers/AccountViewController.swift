@@ -10,14 +10,26 @@ import UIKit
 import Firebase
 
 class AccountViewController: UIViewController, UICollectionViewDataSource {
-    @IBOutlet weak var usernameLabel: UILabel!
+    // MARK: Properties
+    var watchList = [Movie]()
+    var recList = [Movie]()
+    var movieList = [Movie]()
+    var userID = Auth.auth().currentUser!.uid
+    var currentUser: User!
+    
+    // MARK: Outlets
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var friendButton: UIButton!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var usernameLabel: UILabel!
+
+    // MARK: Actions
     @IBAction func addFriendAction(_ sender: Any) {
         addUser()
     }
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var friendButton: UIButton!
-    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    // Change the data in the collection view based on the selected segment.
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex
         {
@@ -32,6 +44,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         }
     }
     
+    // Sign out the current user and go to login.
     @IBAction func signOutAction(_ sender: Any) {
         if Auth.auth().currentUser != nil {
             do {
@@ -44,15 +57,10 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
             }
         }
     }
-    
-    var watchList = [Movie]()
-    var recList = [Movie]()
-    var movieList = [Movie]()
-    
-    var userID = Auth.auth().currentUser!.uid
-    var currentUser: User!
-    
+
+    // MARK: Functions
     func addUser() {
+        // Add user as a friend.
         let thisUser = Auth.auth().currentUser!.uid
         let ref: DatabaseReference! = Database.database().reference().child("users").child(thisUser).child("friends").child(currentUser.id)
         let userData: [String: Any] = ["username": currentUser.username]
@@ -63,6 +71,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
         collectionView.dataSource = self
         
+        // Check if the account is the current user or not and change text.
         if userID == Auth.auth().currentUser!.uid {
             friendButton.setTitle("This is you!", for: [])
             self.friendButton.isEnabled = false;
@@ -71,6 +80,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
             self.navigationItem.rightBarButtonItem = nil
         }
         
+        // Show username.
         let ref = Database.database().reference().child("users").child(userID)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -78,6 +88,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
             self.usernameLabel.text = username
         })
         
+        // Get the users watchlist.
         ref.child("watchlist").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.watchList = []
@@ -96,6 +107,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
             }
         })
         
+        // Get the users recommended movies.
         ref.child("recs").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.recList = []
@@ -112,6 +124,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
                 self.movieList = self.recList
             }
         })
+        // Add column layout to collectionview.
         collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
     }
     
@@ -142,6 +155,7 @@ class AccountViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
+    // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MovieDetailsSegue" {
             if let destination = segue.destination as? MovieDetailsViewController {

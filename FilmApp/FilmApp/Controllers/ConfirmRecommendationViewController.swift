@@ -10,21 +10,27 @@ import UIKit
 import Firebase
 
 class ConfirmRecommendationViewController: UIViewController {
-    @IBOutlet weak var moviePoster: UIImageView!
+    // MARK: Properties
+    var movie: Movie!
+    var user: User!
+    
+    // MARK: Outlets
+    @IBOutlet weak var filmPoster: PosterImageView!
     @IBOutlet weak var textLabel: UILabel!
+    
+    // MARK: Actions
     @IBAction func confirmPressed(_ sender: Any) {
         addMovie()
     }
 
-    var movie: Movie!
-    var user: User!
-    
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
     }
     
     func addMovie() {
+        // Add movie to recommended movies to the selected user.
         let thisUser = Auth.auth().currentUser!.uid
         let userID = user.id
         let ref: DatabaseReference! = Database.database().reference().child("users")
@@ -44,9 +50,10 @@ class ConfirmRecommendationViewController: UIViewController {
         if movie.poster_path != nil {
             completeURL = MovieController.baseURL + String(describing: movie.poster_path!)
         }
-        moviePoster.downloadedFrom(link: completeURL)
+        filmPoster.downloadedFrom(link: completeURL)
     }
     
+    // Go back to the movie details after confirmation.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backToMovieSegue" {
             if let destination = segue.destination as? MovieDetailsViewController {

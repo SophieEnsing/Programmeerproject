@@ -18,10 +18,13 @@ extension URL {
 }
 
 class MovieController {
+    // MARK: Properties
     static let shared = MovieController()
     static let baseURL = "https://image.tmdb.org/t/p/w300"
     static var completeURL = "https://i.imgur.com/69nFCBj.jpg"
     
+    // MARK: Functions
+    // Fetch movies based on the queries from the API.
     func fetchMovies(baseURL: URL, queries: [String: String], completion: @escaping ([Movie]?) -> Void) {
         let movieURL = baseURL.withQueries(queries)!
         

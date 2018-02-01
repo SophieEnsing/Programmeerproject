@@ -10,8 +10,17 @@ import UIKit
 import Firebase
 
 class FriendsViewController: UIViewController, UITableViewDataSource {
+    // MARK: Properties
+    var userList = [User]()
+    var friendList = [User]()
+    var displayList = [User]()
+    
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    // MARK: Actions
+    // Change the data in the collection view based on the selected segment.
     @IBAction func segmentChanged(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex
         {
@@ -26,10 +35,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    var userList = [User]()
-    var friendList = [User]()
-    var displayList = [User]()
-
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -37,6 +43,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
         let ref = Database.database().reference()
         let userID = Auth.auth().currentUser!.uid
 
+        // Get all friends from current user.
         ref.child("users").child(userID).child("friends").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.friendList = []
@@ -52,6 +59,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
             }
         })
         
+        // Get all users from the database.
         ref.child("users").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.userList = []
@@ -75,6 +83,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    // Load users into tableview.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayList.count
     }
@@ -86,6 +95,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
+    // Go to the profile page of the selected user.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserDetailsSegue" {
             if let destination = segue.destination as? AccountViewController {

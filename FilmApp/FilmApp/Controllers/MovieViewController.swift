@@ -9,41 +9,26 @@
 import UIKit
 import Firebase
 
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-            }.resume()
-    }
-    
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}
-
 class MovieViewController: UIViewController, UICollectionViewDataSource {
-    @IBOutlet weak var collectionView: UICollectionView!
+    // MARK: Properties
     var movieList = [Movie]()
     
+    // MARK: Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self // = MyDataSource(withMovieList: movieList)
+        collectionView.dataSource = self
+        // = MyDataSource(withMovieList: movieList)
         
+        // Fetch all popular movies from API.
         MovieController.shared.fetchMovies(baseURL: URL(string: "https://api.themoviedb.org/3/movie/popular?")!, queries: ["api_key":"15d0d9f81918875498b3c675e590ae34"]){ (movieList) in
             if let movieList = movieList {
                 self.updateUI(with: movieList)
             }
         }
+        // Add column layout to collectionview.
         collectionView?.collectionViewLayout = ColumnFlowLayout.columnLayout
         self.navigationItem.setHidesBackButton(true, animated:true);
     }
@@ -72,6 +57,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
+    // Segue to see movie details.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MovieDetailsSegue" {
             if let destination = segue.destination as? MovieDetailsViewController {

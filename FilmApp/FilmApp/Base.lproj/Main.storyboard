@@ -139,7 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-8w-3OK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-8w-3OK" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                 </imageView>
                                             </subviews>
@@ -151,7 +151,7 @@
                                             <constraint firstItem="ygC-8w-3OK" firstAttribute="leading" secondItem="EcW-wi-XWl" secondAttribute="leading" id="yse-2B-7DG"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="filmPoster" destination="ygC-8w-3OK" id="twD-cE-Cei"/>
+                                            <outlet property="filmPoster" destination="ygC-8w-3OK" id="RE2-Rc-q30"/>
                                             <segue destination="7jd-qg-cfQ" kind="show" identifier="MovieDetailsSegue" id="4WF-Z7-gJt"/>
                                         </connections>
                                     </collectionViewCell>
@@ -358,7 +358,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQi-C8-dqO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQi-C8-dqO" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                                 </imageView>
                                             </subviews>
@@ -371,7 +371,7 @@
                                         </constraints>
                                         <size key="customSize" width="100" height="150"/>
                                         <connections>
-                                            <outlet property="filmPoster" destination="aQi-C8-dqO" id="aoD-Kb-HN6"/>
+                                            <outlet property="filmPoster" destination="aQi-C8-dqO" id="lA1-ap-hfZ"/>
                                             <segue destination="7jd-qg-cfQ" kind="show" identifier="MovieDetailsSegue" id="FVA-LE-C7e"/>
                                         </connections>
                                     </collectionViewCell>
@@ -584,7 +584,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4NU-oa-p3k">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4NU-oa-p3k" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                 </imageView>
                                             </subviews>
@@ -629,7 +629,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMQ-hI-huO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oMQ-hI-huO" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="40" width="133" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="duE-xD-Gh8"/>
@@ -708,8 +708,8 @@
                         <viewLayoutGuide key="safeArea" id="IBM-1D-ab7"/>
                     </view>
                     <connections>
+                        <outlet property="filmPoster" destination="oMQ-hI-huO" id="MBe-z7-WXL"/>
                         <outlet property="moviePlot" destination="Asu-dQ-0ht" id="Mh4-uX-c9b"/>
-                        <outlet property="moviePoster" destination="oMQ-hI-huO" id="xJJ-1q-e8j"/>
                         <outlet property="movieTitle" destination="S02-bB-x8l" id="I1z-gQ-gIX"/>
                         <outlet property="watchlistButton" destination="nk7-qY-gA9" id="lWN-uc-KCT"/>
                         <outlet property="watchlistLabel" destination="A0D-bh-VLY" id="op4-ll-v7m"/>
@@ -805,7 +805,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ckn-f3-wcb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ckn-f3-wcb" customClass="PosterImageView" customModule="FilmApp" customModuleProvider="target">
                                 <rect key="frame" x="62" y="132" width="250" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="86A-bg-w9x"/>
@@ -842,7 +842,7 @@
                         <viewLayoutGuide key="safeArea" id="h59-vF-gbM"/>
                     </view>
                     <connections>
-                        <outlet property="moviePoster" destination="Ckn-f3-wcb" id="rZV-wU-0xa"/>
+                        <outlet property="filmPoster" destination="Ckn-f3-wcb" id="dsD-4c-knB"/>
                         <outlet property="textLabel" destination="AyS-T8-5gx" id="lNF-Vs-C2D"/>
                     </connections>
                 </viewController>

@@ -10,12 +10,15 @@ import UIKit
 import Firebase
 
 class RecommendViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    
+    // MARK: Properties
     var friendList = [User]()
     var movie: Movie!
     
+    // MARK: Outlets
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -23,6 +26,7 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
         let ref = Database.database().reference()
         let userID = Auth.auth().currentUser!.uid
         
+        // Get list of friends from current user.
         ref.child("users").child(userID).child("friends").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.friendList = []
@@ -46,6 +50,7 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    // Load users into tableview.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendList.count
     }
@@ -57,6 +62,7 @@ class RecommendViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
 
+    // Go to confirmation screen and load user and movie data.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "confirmRecommendation" {
             if let destination = segue.destination as? ConfirmRecommendationViewController {

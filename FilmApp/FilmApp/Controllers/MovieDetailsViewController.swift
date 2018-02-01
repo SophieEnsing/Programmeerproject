@@ -10,22 +10,31 @@ import UIKit
 import Firebase
 
 class MovieDetailsViewController: UIViewController {
-    @IBOutlet weak var moviePoster: UIImageView!
+    // MARK: Properties
+    var movie: Movie!
+    var completeURL = MovieController.completeURL
+    var watchList: [String] = []
+    
+    // MARK: Outlets
+    @IBOutlet weak var filmPoster: PosterImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var moviePlot: UILabel!
     @IBOutlet weak var watchlistButton: UIButton!
     @IBOutlet weak var watchlistLabel: UILabel!
+    
+    // MARK: Actions
     @IBAction func watchlistAction(_ sender: Any) {
+        // If the movie is on the watchlist, it can be removed, else it can be added.
         if watchlistButton.isSelected == true {
             removeMovie()
         } else {
             addMovie()
         }
-        
         watchlistButton.isSelected = !watchlistButton.isSelected
-        
     }
 
+    // MARK: Functions
+    // Remove movie from watchlist
     func removeMovie() {
         let userID = Auth.auth().currentUser!.uid
         let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
@@ -34,12 +43,13 @@ class MovieDetailsViewController: UIViewController {
                 print(error)
             } else {
                 print(refer)
-                print("Child Removed Correctly")
             }
         })
+        // Update watchlist label.
         self.watchlistLabel.text = "Add to watchlist"
     }
-    
+
+    // Add movie to watchlist
     func addMovie() {
         let userID = Auth.auth().currentUser!.uid
         let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
@@ -48,21 +58,19 @@ class MovieDetailsViewController: UIViewController {
                                         "overview": self.movie.overview,
                                         "title": self.movie.title]
         ref.child(String(self.movie.id)).setValue(userData)
+        // Update watchlist label.
         self.watchlistLabel.text = "Remove from watchlist"
     }
     
-    var movie: Movie!
-    let baseURL = "https://image.tmdb.org/t/p/w300"
-    var completeURL = "https://i.imgur.com/69nFCBj.jpg"
-    var watchList: [String] = []
+
     
     func updateUI() {
         movieTitle.text = movie.title
         moviePlot.text = movie.overview
         if movie.poster_path != nil {
-            completeURL = baseURL + String(describing: movie.poster_path!)
+            completeURL = MovieController.baseURL + String(describing: movie.poster_path!)
         }
-        moviePoster.downloadedFrom(link: completeURL)
+        filmPoster.downloadedFrom(link: completeURL)
     }
     
     override func viewDidLoad() {
@@ -70,6 +78,8 @@ class MovieDetailsViewController: UIViewController {
         let ref: DatabaseReference! = Database.database().reference().child("users").child(userID).child("watchlist")
         super.viewDidLoad()
         updateUI()
+        
+        // Check if the movie is on the users watchlist and edit label.
         ref.observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.watchList = []
@@ -88,6 +98,7 @@ class MovieDetailsViewController: UIViewController {
         
     }
 
+    // Recommend segue to recommend this movie to user.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RecommendSegue" {
             if let destination = segue.destination as? RecommendViewController {
