@@ -320,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtD-G0-UNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25178" y="-11247"/>
+            <point key="canvasLocation" x="-25260" y="-11860"/>
         </scene>
         <!--Profile-->
         <scene sceneID="bVG-P4-p0G">
@@ -533,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hP-7d-XqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24410" y="-13255"/>
+            <point key="canvasLocation" x="-24410" y="-12582"/>
         </scene>
         <!--Home-->
         <scene sceneID="Z5R-0I-eLl">
@@ -557,7 +557,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFL-bv-huq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24408" y="-12582.00899550225"/>
+            <point key="canvasLocation" x="-23729" y="-12555"/>
         </scene>
         <!--Popular Movies-->
         <scene sceneID="xpj-6p-w73">
@@ -882,7 +882,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzc-6P-L3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24409" y="-13925"/>
+            <point key="canvasLocation" x="-24490" y="-12555"/>
         </scene>
         <!--Profile-->
         <scene sceneID="gP4-mg-AuM">
@@ -906,7 +906,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ic1-pd-Fn1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24409" y="-11247"/>
+            <point key="canvasLocation" x="-24537" y="-11860"/>
         </scene>
     </scenes>
     <resources>
@@ -917,8 +917,8 @@
         <image name="user_male" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4WF-Z7-gJt"/>
-        <segue reference="UBI-IS-FFT"/>
+        <segue reference="kVs-4Y-YUO"/>
+        <segue reference="iCx-Gz-v43"/>
         <segue reference="X6l-uR-ecP"/>
     </inferredMetricsTieBreakers>
 </document>

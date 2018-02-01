@@ -95,7 +95,7 @@
 		A936129B2007906600F9E2DE /* FilmApp */ = {
 			isa = PBXGroup;
 			children = (
-				A940A7A3200CBE0F000EBEA7 /* Account */,
+				A940A7A3200CBE0F000EBEA7 /* Account Controllers */,
 				A940A7A4200CBEAB000EBEA7 /* Controllers */,
 				A940A7A5200CBEBE000EBEA7 /* Models & Structs */,
 				A936129C2007906600F9E2DE /* AppDelegate.swift */,
@@ -109,13 +109,13 @@
 			path = FilmApp;
 			sourceTree = "<group>";
 		};
-		A940A7A3200CBE0F000EBEA7 /* Account */ = {
+		A940A7A3200CBE0F000EBEA7 /* Account Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A91EDC4F2008CBD700E6D30B /* LoginViewController.swift */,
 				A93DED41200CB29B0035AF51 /* SignUpViewController.swift */,
 			);
-			path = Account;
+			path = "Account Controllers";
 			sourceTree = "<group>";
 		};
 		A940A7A4200CBEAB000EBEA7 /* Controllers */ = {
