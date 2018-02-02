@@ -9,7 +9,7 @@ Bij deze app is het nodig om in te loggen. De gebruiker ziet als eerste een over
 ![App Overview](docs/AppOverview.png)
 
 ### Product Demo
-Een korte demonstratie van alle functionaliteiten is te vinden op YouTube (https://youtu.be/xKUVBjZFa9Q)
+Een korte demonstratie van alle functionaliteiten is te vinden op YouTube (https://www.youtube.com/watch?v=fk_5xuI07Hk)
 
 ### Copyright
 * Voor de applicatie is gebruikt gemaakt van de API van the Movie Database (https://www.themoviedb.org/)
