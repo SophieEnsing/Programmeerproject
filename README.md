@@ -8,6 +8,9 @@ Bij deze app is het nodig om in te loggen. De gebruiker ziet als eerste een over
 
 ![App Overview](docs/AppOverview.png)
 
+### Product Demo
+Een korte demonstratie van alle functionaliteiten is te vinden op YouTube (https://youtu.be/xKUVBjZFa9Q)
+
 ### Copyright
 * Voor de applicatie is gebruikt gemaakt van de API van the Movie Database (https://www.themoviedb.org/)
 * Voor de tabbar iconen zijn iconen gebruikt van icons8 (https://icons8.com/ios-icons/)
